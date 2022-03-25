@@ -1,5 +1,10 @@
 import Link from 'next/link';
 
+function onSubmit(e) {
+  e.preventDefault();
+  console.log("I clicked it!")
+}
+
 export default function Header({ name }) {
   return (
     <header className="pt-20 pb-12">
@@ -9,6 +14,15 @@ export default function Header({ name }) {
           <a>{name}</a>
         </Link>
       </p>
+      <form onSubmit={onSubmit} netlify>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="John"><br>
+          
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Doe"><br><br>
+          
+        <input type="submit" value="Submit">
+      </form> 
     </header>
   );
 }
